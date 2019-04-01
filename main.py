@@ -1,8 +1,11 @@
 import telebot
 # import PgSQL
-import re
+# import re
 import config
+from telebot import apihelper
 
+
+apihelper.proxy = {'https':'socks5://userproxy:password@166.62.84.121:20333'}
 bot = telebot.TeleBot(config.token)
 
 # post = PgSQL.PostgreSQL()
@@ -17,6 +20,9 @@ def start(message):
 #     rows_fiz = post.select_like_fiz(st)
 #     rows_ur = post.select_like_ur(st)
 
+# @bot.message_handler(commands=['start', 'help'])
+# def send_welcome(message):
+# 	bot.reply_to(message, "Howdy, how are you doing?")
 
 if __name__ == '__main__':
 	bot.polling(none_stop=True)
